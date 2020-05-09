@@ -1,11 +1,3 @@
-/**
- * Sample React Native App
- * https://github.com/facebook/react-native
- *
- * @format
- * @flow strict-local
- */
-
 import React from 'react';
 import {
   SafeAreaView,
@@ -13,102 +5,137 @@ import {
   ScrollView,
   View,
   Text,
-  StatusBar,
+  Image,
 } from 'react-native';
 
-import {
-  Header,
-  LearnMoreLinks,
-  Colors,
-  DebugInstructions,
-  ReloadInstructions,
-} from 'react-native/Libraries/NewAppScreen';
-
-const App: () => React$Node = () => {
+const App = () => {
   return (
     <>
-      <StatusBar barStyle="dark-content" />
-      <SafeAreaView>
-        <ScrollView
-          contentInsetAdjustmentBehavior="automatic"
-          style={styles.scrollView}>
-          <Header />
-          {global.HermesInternal == null ? null : (
-            <View style={styles.engine}>
-              <Text style={styles.footer}>Engine: Hermes</Text>
+      <ScrollView>
+        <View style={{ flexDirection: 'row' }}>
+          <Image
+            source={ require('./assets/img/bg.jpg') }
+            style={styles.banner}
+          />
+        </View>
+        <View style={styles.contenedor}>
+          <Text style={styles.titulo}>Que hacer en Paris?</Text>
+          <ScrollView horizontal>
+            <View>
+              <Image 
+                style={styles.ciudad}
+                source={ require('./assets/img/actividad1.jpg') }/>
             </View>
-          )}
-          <View style={styles.body}>
-            <View style={styles.sectionContainer}>
-              <Text style={styles.sectionTitle}>Step One</Text>
-              <Text style={styles.sectionDescription}>
-                Edit <Text style={styles.highlight}>App.js</Text> to change this
-                screen and then come back to see your edits.
-              </Text>
+            <View>
+              <Image 
+                style={styles.ciudad}
+                source={ require('./assets/img/actividad2.jpg') }/>
             </View>
-            <View style={styles.sectionContainer}>
-              <Text style={styles.sectionTitle}>See Your Changes</Text>
-              <Text style={styles.sectionDescription}>
-                <ReloadInstructions />
-              </Text>
+            <View>
+              <Image 
+                style={styles.ciudad}
+                source={ require('./assets/img/actividad3.jpg') }/>
             </View>
-            <View style={styles.sectionContainer}>
-              <Text style={styles.sectionTitle}>Debug</Text>
-              <Text style={styles.sectionDescription}>
-                <DebugInstructions />
-              </Text>
+            <View>
+              <Image 
+                style={styles.ciudad}
+                source={ require('./assets/img/actividad4.jpg') }/>
             </View>
-            <View style={styles.sectionContainer}>
-              <Text style={styles.sectionTitle}>Learn More</Text>
-              <Text style={styles.sectionDescription}>
-                Read the docs to discover what to do next:
-              </Text>
+            <View>
+              <Image 
+                style={styles.ciudad}
+                source={ require('./assets/img/actividad5.jpg') }/>
             </View>
-            <LearnMoreLinks />
+          </ScrollView>
+
+          <Text style={styles.titulo}>Los mejores Alojamientos</Text>
+          <View>
+            <View>
+              <Image 
+                style={styles.mejor}
+                source={ require('./assets/img/mejores1.jpg') }/>
+            </View>
+            <View>
+              <Image 
+                style={styles.mejor}
+                source={ require('./assets/img/mejores2.jpg') }/>
+            </View>
+            <View>
+              <Image 
+                style={styles.mejor}
+                source={ require('./assets/img/mejores3.jpg') }/>
+            </View>
           </View>
-        </ScrollView>
-      </SafeAreaView>
+
+          <Text style={styles.titulo}>Hospedajes en LA</Text>
+          <View style={styles.listado}>
+            <View style={styles.listadoItem}>
+              <Image 
+                style={styles.hospedaje}
+                source={ require('./assets/img/hospedaje1.jpg') }/>
+                <Text>Casa 3 recamaras</Text>
+            </View>
+            <View style={styles.listadoItem}>
+              <Image 
+                style={styles.hospedaje}
+                source={ require('./assets/img/hospedaje2.jpg') }/>
+                <Text>Casa 3 recamaras</Text>
+            </View>
+            <View style={styles.listadoItem}>
+              <Image 
+                style={styles.hospedaje}
+                source={ require('./assets/img/hospedaje3.jpg') }/>
+                <Text>Casa 3 recamaras</Text>
+            </View>
+            <View style={styles.listadoItem}>
+              <Image 
+                style={styles.hospedaje}
+                source={ require('./assets/img/hospedaje4.jpg') }/>
+                <Text>Casa 3 recamaras</Text>
+            </View>
+          </View>
+        </View>
+      </ScrollView>
     </>
   );
 };
 
 const styles = StyleSheet.create({
-  scrollView: {
-    backgroundColor: Colors.lighter,
+  banner: {
+    height: 250,
+    flex: 1
   },
-  engine: {
-    position: 'absolute',
-    right: 0,
+  contenedor: {
+    marginHorizontal: 10
   },
-  body: {
-    backgroundColor: Colors.white,
-  },
-  sectionContainer: {
-    marginTop: 32,
-    paddingHorizontal: 24,
-  },
-  sectionTitle: {
+  titulo: {
+    fontWeight: 'bold',
     fontSize: 24,
-    fontWeight: '600',
-    color: Colors.black,
+    marginVertical: 20
   },
-  sectionDescription: {
-    marginTop: 8,
-    fontSize: 18,
-    fontWeight: '400',
-    color: Colors.dark,
+  ciudad: {
+    width: 250,
+    height: 300,
+    marginRight: 10,
   },
-  highlight: {
-    fontWeight: '700',
+  mejor: {
+    width: '100%',
+    height: 200,
+    marginTop: 20
   },
-  footer: {
-    color: Colors.dark,
-    fontSize: 12,
-    fontWeight: '600',
-    padding: 4,
-    paddingRight: 12,
-    textAlign: 'right',
+  hospedaje: {
+    width: '100%',
+    height: 200,
+    marginTop: 20
   },
+  listado: {
+    flexDirection: 'row',
+    flexWrap: 'wrap',
+    justifyContent: 'space-between'
+  },
+  listadoItem: {
+    flexBasis: '49%'
+  }
 });
 
 export default App;
